@@ -671,7 +671,7 @@ export class RegisterUser{
           // }, reject => {
           //   console.log('error');
           // })
-                    // this.user.deviceToken=this.service.getToken();  
+                    this.user.deviceToken=this.service.getToken();  
                     this.db.list('/user_detail').push(this.user).then(({key}) => 
                     {
 
@@ -686,12 +686,15 @@ export class RegisterUser{
                       this.navCtrl.setRoot(HomePage);
                       this.navCtrl.popToRoot();
                       this.firstTime=false;
+                      this.updateKey(this.user)
                     },error=>{
 
                       this.firstTime=true;
                       // alert("Error while saving please try again");
                       this.service.showToast2("Something went wrong please try again");
                     }) 
+
+                    
             // this.user=this.service.getUser();    
         }
         catch(error)
@@ -712,6 +715,23 @@ export class RegisterUser{
     closeModal()
     {
       this.viewCtrl.dismiss();
+    }
+
+
+    updateKey(user)
+    {
+        this.db.object('/user_detail/'+user.key).update(user).then((profile: any) => {
+            // return new Response('Profile has been saved successfully');
+
+
+              console.log("Successfully updated location====")
+            //  this.showToast("Successfully updated location====");
+          })
+        .catch((err: any) => {
+            // return new Response('Unable to save profile at this time, please try again later.');
+            var error="error=="+err;
+            // this.showToast(error);
+        });
     }
 
 

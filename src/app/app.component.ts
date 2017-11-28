@@ -18,6 +18,7 @@ import {Http, Response,RequestOptions,Headers} from '@angular/http';
 import { LocationTrackerProvider } from '../providers/location-tracker';
 import { UsersPage } from '../pages/users/users';
 import { UserDetailPage} from '../pages/user-detail/user-detail';
+import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database-deprecated';
 
 @Component({
   templateUrl: 'app.html'
@@ -31,7 +32,7 @@ export class MyApp {
   headers:any;
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,public fcm:FCM,public service:SessionService,public native:NativeStorage,public sharing:SocialSharing,public alertCtrl:AlertController  
+  constructor(public db: AngularFireDatabase,public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,public fcm:FCM,public service:SessionService,public native:NativeStorage,public sharing:SocialSharing,public alertCtrl:AlertController  
     ,public nativeStorage:NativeStorage,public locationAccuracy:LocationAccuracy,public network:Network,public flashlight: Flashlight,public localNotifications:LocalNotifications,public http:Http
     ,public locationTracker:LocationTrackerProvider
     ) {
@@ -290,6 +291,8 @@ export class MyApp {
                  
           // }, 2000);
       }
+
+      
     presentConfirm() {
         let alert = this.alertCtrl.create({
           title: 'LogOut',
@@ -308,6 +311,7 @@ export class MyApp {
                 // console.log('Buy clicked');
                 // this.native.clear()        
                   // .then(()=>{
+                    this.clearDeviceToken()
                     this.service.setUser(null);
                     this.nativeStorage.clear();
                     this.nav.setRoot(LoginPage);
@@ -321,5 +325,27 @@ export class MyApp {
         })
       
         alert.present();
-  }
+    }
+
+
+      clearDeviceToken()
+      {
+          var user=this.service.getUser();
+          user.deviceToken="";
+          this.db.object('/user_detail/'+user.key).update(user).then((profile: any) => {
+            // return new Response('Profile has been saved successfully');
+
+
+              console.log("Successfully updated location====")
+            //  this.showToast("Successfully updated location====");
+          })
+        .catch((err: any) => {
+            // return new Response('Unable to save profile at this time, please try again later.');
+            var error="error=="+err;
+            // this.showToast(error);
+        });
+      }
+
 }
+
+
