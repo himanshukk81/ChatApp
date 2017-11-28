@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\Ajay\.gradle\caches\modules-2\files-2.1\android.arch.lifecycle\common\1.0.0\e414a4cb28434e25c4f6aa71426eb20cf4874ae9\common-1.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="e414a4cb28434e25c4f6aa71426eb20cf4874ae9">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\common-1.0.0_45d10474aff906b71083b720494498b59df96251.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\27.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="f10fed27d6d0b4aae675f17b33c639b4d5a0ed93">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-27.0.1_907f25a10a350c63a9c4751494888362ce0fa10a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\27.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="ac5e6ae168ef77f0b0b1e3245d7afd7d32f710c3">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-27.0.1_14567d0126bf1fad3ee9c0c76c033c620ea0fdfd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\org.apache.cordova\CordovaLib\6.3.0\release\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="921203643cb1b729d169457a1cc2e009381396a7">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\release\CordovaLib-6.3.0-release_8806bd6e9e3b91f7f6929dd3846c0b3359b3eef6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\11.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="9a6350134db98fb39e212ddca5f0bad9280e8f3f">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-analytics-11.0.2_820954cd9f4c74895210939036242edbc5d07305.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\11.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="2a2d9cd43adbe7599a78f2293273a77881c1909a">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-base-11.0.2_e637428379d3c56e962e97736d3d016daccd1916.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\11.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="3560fc891bbecd8982acbace15ccead59c3fedd1">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-auth-11.0.2_87ac1b8de15c074e494570927178c2577a1b1d02.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Ajay\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\bolts-tasks-1.4.0_c6c0f41bb1cd60c17a24a40aed2651ebf6f80099.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.facebook.android\facebook-common\4.28.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="287f4dec8dc2d40a238b12562b437438499cd2fb">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.facebook.android-facebook-common-4.28.0_97050e8b4aab1ac2dba0bb0c546d3ea43e72386a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.facebook.android\facebook-login\4.28.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="b8b26b28aae0ba8e2db55ad9fe0ebc770530c5ef">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.facebook.android-facebook-login-4.28.0_a4579dfc6ec87dd8c635f138c1055d893803098f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\11.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="240e5a7c620376184f3168cfdd36315b97b1fe07">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-location-11.0.2_c97f86ee653147dc8b5e9062b2cd54253861ffd7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.android.support\appcompat-v7\26.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="f428e2fbc9ed0b297e3a3f420e51e6982f66822d">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-26.1.0_e75b58b9f3fcc7b4ea8bf35fcbb75f0266a437ea.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.facebook.android\facebook-applinks\4.28.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="82ea5a937ab84229fbd2f3fc8cf2a72cbdf0ee0f">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.facebook.android-facebook-applinks-4.28.0_5318b62e902b50fa062eeb5b369a497d217fa89f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\26.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="40392f30a601db5675cdf18192aab013d6fee6ec">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-26.1.0_48b83dee039f1dc2c3e79390e77ed95004a5a6b8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\27.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="91dae39a5cc837ad2a829c0dc69c57ab8d69d22b">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-support-compat-27.0.1_afc17c6416231406dd1ce02ea35c55d7017be5c7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\11.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="86baa7d1051901fc1b8e7f596732f71f32175bde">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-tasks-11.0.2_6e8a4d545796940d2e308d47dabc859e00d16c79.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\11.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="2c1d9fbe7d2f686b3dcdbc3f63a983a211401ca3">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-analytics-impl-11.0.2_45b0994c2fa17e62508aec773cc6f9445ec0708a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\android.arch.lifecycle\runtime\1.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="b62fdc4cfef174c1e456014195c83fa7de7dc041">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\android.arch.lifecycle-runtime-1.0.0_be284277e1e11357363d167ff9d86e8078f634e8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\27.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="f8a80c9882b064f2943e10649a8d2b249f5bf176">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-27.0.1_c0541aed99816b4ebee2b7984bde8a9ace0a5e7a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.facebook.android\facebook-messenger\4.28.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="2482bfd874e8b3927f4141105674ad392ff83698">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.facebook.android-facebook-messenger-4.28.0_5420a09bb3645b4ecf8bc6afee80ded5ddb9d5af.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\org.apache.cordova\CordovaLib\6.3.0\debug\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="df1a7a6af20c4eca090c1f535b77951ef6025bfb">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\CordovaLib-6.3.0-debug_98186ec06c1c730130ce95c398071adfd499919e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\11.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="f260cdc1a267b17b911022919f19d568e6624229">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-messaging-11.0.2_c35d28d7fdf74e2939d4c9a023d1faf87fec6955.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\11.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="885bcb023a9b57ed31c305e2e94e31af909e21c5">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-identity-11.0.2_3496784abb5129dd01ed0f82664170a079185794.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.android.support\customtabs\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="807751a24cf96566fd8675517c94d8463cf364db">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-customtabs-25.3.1_ff59bfa4d8d2a34e36590c8f161b490000316dd4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\11.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="a3d07dfddc7c3c7547fb953847589d586f1e2077">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-auth-base-11.0.2_ac524582221e0b72e0e7d17587d00e4c1d267807.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.facebook.android\facebook-share\4.28.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="dc83ab7a5ce1e0296cf18a52a6edbcfef815e6cf">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.facebook.android-facebook-share-4.28.0_9a2d2bd49eb356b3e7448854af22c08bdd03799a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\26.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="6f4138a4e065826cb044d49faea4cfd7191773d1">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-26.1.0_3f0f895f918573eaeb747abb5f390d83cf07ab3a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Ajay\.gradle\caches\modules-2\files-2.1\com.google.zxing\core\3.3.0\73c49077166faa4c3c0059c5f583d1d7bd1475fe\core-3.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="73c49077166faa4c3c0059c5f583d1d7bd1475fe">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\core-3.3.0_e9fca2c0db770a8561df9ded1cf6f273aee822af.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.28.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="53e8932b1ac8c7dfc35cfeda1f9efbc9822ceaf3">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.facebook.android-facebook-android-sdk-4.28.0_c7180709ad33872f7db08c8000fa3821bac63c73.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\27.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="d4f9ace23785adf79a174d569bde261f032e1190">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-27.0.1_b4716fac9b160fa34bb39ec9cfdb71d8f8596d28.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Ajay\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-applinks\1.4.0\8ad21bf21784dacce5f2043afb97218cc377e835\bolts-applinks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\bolts-applinks-1.4.0_c95035b599d1620a794e3f3c77c0f9f915262b2f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\11.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="a71be5f29a1c1e3fd3e84472742668f101a5b936">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-11.0.2_dc95f770d2b4255ab1d8fbde94314567dab54f8d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.google.firebase\firebase-common\11.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="fc5624185d414a0f572bfb3df7d841ceb335aef9">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-common-11.0.2_3d6442b2691f5095596d488f69ba6ec24bcb01e5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Ajay\.gradle\caches\modules-2\files-2.1\android.arch.core\common\1.0.0\a2d487452376193fc8c103dd2b9bd5f2b1b44563\common-1.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="a2d487452376193fc8c103dd2b9bd5f2b1b44563">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\common-1.0.0_5610730a31e64e13f62ad5f359d6004a3040fa98.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.facebook.android\facebook-places\4.28.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="0d394688dd7030b83dea8eed3fa483410c24afe0">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.facebook.android-facebook-places-4.28.0_3322e36e3442cc5bacf7ca328752f4593a82c933.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\11.0.2\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="2737331564e0084fc0eb30ba500564a6dbe5e98f">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-iid-11.0.2_e8845ec137db54776c138c89368c6872c4d0cb5c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\27.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="cbbd26dd2f6d46181b41a5f6f5e34889442a811b">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-support-v4-27.0.1_93c50181b6debdfc6de56d35ed7ed6bb9f63c774.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.android.support\cardview-v7\25.3.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="914f5d3e3ace66080e59613708f06d129a222e25">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-25.3.1_80ed1a1a16c0113b8c189b0f93b0056b54097943.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Ajay\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\27.0.1\287742f1c6cea6d9126670e9f031890b0462362a\support-annotations-27.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="287742f1c6cea6d9126670e9f031890b0462362a">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\support-annotations-27.0.1_20f0c7a64a6190df934cdbc3ecc62b2884733889.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\newLearningApp\platforms\android\build\intermediates\exploded-aar\com.facebook.android\facebook-core\4.28.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.1"
+        sha1="ab6e491b5d7bda2f47991a30f6bfe9a8b134ff8b">
+        <dex dex="D:\newLearningApp\platforms\android\build\intermediates\pre-dexed\debug\com.facebook.android-facebook-core-4.28.0_7117e48867398a025f4afcd066e391e0bf84cacf.jar" />
+    </item>
+
+</items>

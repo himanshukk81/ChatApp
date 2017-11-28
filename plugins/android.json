@@ -1,0 +1,72 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.rsdc.application"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.rsdc.application"
+    },
+    "cordova-plugin-facebook4": {
+      "APP_ID": "719056864949598",
+      "APP_NAME": "com.android.application",
+      "PACKAGE_NAME": "com.rsdc.application"
+    },
+    "cordova-plugin-fcm": {
+      "PACKAGE_NAME": "com.rsdc.application"
+    },
+    "cordova-plugin-googleplus": {
+      "PACKAGE_NAME": "com.rsdc.application"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "com.rsdc.application"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.rsdc.application"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.rsdc.application"
+    },
+    "cordova-plugin-x-socialsharing": {
+      "PACKAGE_NAME": "com.rsdc.application"
+    },
+    "ionic-plugin-keyboard": {
+      "PACKAGE_NAME": "com.rsdc.application"
+    },
+    "cordova-plugin-nativestorage": {
+      "PACKAGE_NAME": "com.rsdc.application"
+    },
+    "cordova.plugins.diagnostic": {
+      "PACKAGE_NAME": "com.rsdc.application"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.rsdc.application"
+    },
+    "cordova-plugin-request-location-accuracy": {
+      "PACKAGE_NAME": "com.rsdc.application"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.rsdc.application"
+    },
+    "de.appplant.cordova.plugin.local-notification": {
+      "PACKAGE_NAME": "com.rsdc.application"
+    },
+    "cordova-plugin-x-toast": {
+      "PACKAGE_NAME": "com.rsdc.application"
+    }
+  },
+  "dependent_plugins": {
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "com.rsdc.application"
+    },
+    "cordova-plugin-app-event": {
+      "PACKAGE_NAME": "com.rsdc.application"
+    }
+  }
+}

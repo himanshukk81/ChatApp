@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "886524215909",
+    "firebase_url": "https://rsdc-113b3.firebaseio.com",
+    "project_id": "rsdc-113b3",
+    "storage_bucket": "rsdc-113b3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:886524215909:android:4d973ce8611ae520",
+        "android_client_info": {
+          "package_name": "com.rsdc.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "886524215909-46877uof1bf0l2pe2ai5nbbgf5c4iqqs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFlYq5ixwFCLTIV6kJBSp_Gu8L_TJTl28"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

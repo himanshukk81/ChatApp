@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "D:\\newLearningApp\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\xml\\config.xml",
+        "source": "D:\\newLearningApp\\platforms\\android\\res\\xml\\config.xml"
+    },
+    {
+        "merged": "D:\\newLearningApp\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\xml\\sharing_paths.xml",
+        "source": "D:\\newLearningApp\\platforms\\android\\res\\xml\\sharing_paths.xml"
+    },
+    {
+        "merged": "D:\\newLearningApp\\platforms\\android\\build\\intermediates\\res\\merged\\debug\\xml\\provider_paths.xml",
+        "source": "D:\\newLearningApp\\platforms\\android\\res\\xml\\provider_paths.xml"
+    }
+]
