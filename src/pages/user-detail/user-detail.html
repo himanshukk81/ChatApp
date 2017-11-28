@@ -6,7 +6,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  
+
       <div class="message-wrap">
   
           <div *ngFor="let message of messages | async" 
@@ -24,13 +24,9 @@
                        <p class="line-breaker">{{message.editorMsg}}</p>
                    </div>
                 </div>
-
             </div>
-              
           </div>
-  
       </div>
-  
   </ion-content>
 <ion-footer no-border [style.height]="showEmojiPicker ? '255px' : '55px'">
   <ion-grid class="input-wrap">

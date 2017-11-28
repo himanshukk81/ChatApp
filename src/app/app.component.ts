@@ -62,8 +62,8 @@ export class MyApp {
       this.splashScreen.hide();
       this.checkUserStatus();
       this.initPushNotification();
-      // this.checkNetwork();
-      // this.enableLocation();
+      this.checkNetwork();
+      this.enableLocation();
     });
   }
    enableLocation()

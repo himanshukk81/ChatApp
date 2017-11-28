@@ -2,6 +2,7 @@ import { Component,ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams,Content,TextInput } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database-deprecated';
 import { SessionService } from '../../app/sessionservice';
+import {Http, Response,RequestOptions,Headers} from '@angular/http';
 
 /**
  * Generated class for the UserDetailPage page.
@@ -28,7 +29,7 @@ export class UserDetailPage {
   loader:any;
   showEmojiPicker = false;
   user:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public db:AngularFireDatabase,public service:SessionService) {
+  constructor(public http:Http,public navCtrl: NavController, public navParams: NavParams,public db:AngularFireDatabase,public service:SessionService) {
     this.messageInfo={};
     
   }
@@ -149,18 +150,15 @@ export class UserDetailPage {
 
   sendMessage()
   {
-
     // this.messageInfo.status="pending";
     this.loader=true;
-
-    // this.messageInfo.pending=true;
-    // this.messages.push(this.messageInfo);
     this.db.list('/messages').push(this.messageInfo).then(resolve => {
         console.log('all good');
         // this.messages.remove(this.messageInfo);
         // this.loader=false;
         // this.messageInfo.pending=false;
         this.scrollToBottom();
+        this.sendNotification();
         // this.messageInfo.status="completed";
       }, reject => {
         console.log('error');
@@ -172,6 +170,28 @@ export class UserDetailPage {
       this.messageInfo.editorMsg='';
       
   }
+
+  sendNotification()
+      {
+        var notifyUrl="http://klaspring.staging.wpengine.com/push_api.php?token="+this.service.getToken()+"&senderEmail="+this.messageInfo.senderEmail+"&receiverEmail="+this.messageInfo.receiverEmail+"&message="+this.messageInfo.editorMsg;     
+          // var timer = setTimeout(() => {
+
+            
+              this.http.get(notifyUrl)
+            // .map(val => val.json())
+              .subscribe(data => 
+                {                  
+                  console.log(JSON.stringify(data))
+                })
+                err =>
+                {
+                 this.service.showToast("Error while sending notification");
+                // alert("Error"+err);
+                }
+            
+                 
+          // }, 2000);
+      }
 
 
 

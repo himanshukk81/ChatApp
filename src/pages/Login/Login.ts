@@ -329,11 +329,15 @@ export class LoginPage {
                 }
                 else
                 {
+                  this.service.getUser().deviceToken=this.service.getToken();
+                  this.service.setUser(this.service.getUser());
+                  this.updateDeviceToken();
                   this.navCtrl.setRoot(HomePage);
                   this.navCtrl.popToRoot();
                   var user=this.service.getUser();
                   user.latitude=0;
                   user.longitude=0;
+
                   // setInterval(() => {  
                   //   user.latitude+=1;
                   //   user.longitude+=1;
@@ -459,7 +463,22 @@ export class LoginPage {
       return;
     })     
   }
+  updateDeviceToken()
+  {
+    var userInfo=this.service.getUser();
+    this.db.object('/user_detail/'+userInfo.key).update(userInfo).then((profile: any) => {
+              // return new Response('Profile has been saved successfully');
 
+
+                console.log("Successfully updated location====")
+              //  this.showToast("Successfully updated location====");
+            })
+          .catch((err: any) => {
+              // return new Response('Unable to save profile at this time, please try again later.');
+              var error="error=="+err;
+             
+          });
+  }
   registerUser(userInfo)
   {
     
@@ -468,17 +487,20 @@ export class LoginPage {
     userInfo.userType="D";
     userInfo.latitude=28.4489669;
     userInfo.longitude=77.068052;
+    userInfo.deviceToken=this.service.getToken();
     // var userInfo1={};
     // userInfo1.latitude=null;
     // userInfo1.longitude=null;
 
     // alert("User info=="+JSON.stringify(userInfo));
-    this.db.list('/user_detail').push(userInfo).then(({key}) => {
+    this.db.list('/user_detail').push(userInfo).then((key) => {
         console.log('all good');
 
         // alert("All good=="+resolve);
         // this.service.showToast2("Successfully Logged in");
         userInfo.key=key;
+
+
         this.service.setUser(userInfo);
         this.navCtrl.setRoot(HomePage);
         this.navCtrl.popToRoot();
@@ -649,6 +671,7 @@ export class RegisterUser{
           // }, reject => {
           //   console.log('error');
           // })
+                    // this.user.deviceToken=this.service.getToken();  
                     this.db.list('/user_detail').push(this.user).then(({key}) => 
                     {
 
@@ -662,7 +685,7 @@ export class RegisterUser{
                       this.closeModal();
                       this.navCtrl.setRoot(HomePage);
                       this.navCtrl.popToRoot();
-                      this.firstTime=true;
+                      this.firstTime=false;
                     },error=>{
 
                       this.firstTime=true;
@@ -673,8 +696,10 @@ export class RegisterUser{
         }
         catch(error)
         {
+          var errorMessage="dssdfsd==="+error;
 
-          this.service.showToast2("Something went wrong please try again");
+          alert(errorMessage);
+          this.service.showToast2(errorMessage);
           this.firstTime=true;
           // this.service.showToast("Something Went Wrong Please Try again");
         }
@@ -703,16 +728,7 @@ export class RegisterUser{
             },
             
           }).subscribe(snapshot => {
-              if(this.first)
-                {
-                  // alert("snapshot==="+JSON.stringify(snapshot));
-                  this.first=false;
                   this.saveUserInfo(snapshot); 
-                }
-                else
-                  {
-                    this.service.setUser(snapshot);
-                  }
                   this.firstTime=true;
           },error=>{
             // alert("Helllloo");

@@ -16,8 +16,9 @@
 
           <div *ngIf="user.email!=userInfo">
               <ion-avatar item-start>
-                <img src="../../assets/imgs/user.png" *ngIf="!user.imageUrl">
+                <img src="../../assets/imgs/user.png" *ngIf="!user.imageUrl && !user.picture">
                 <img src="{{user.imageUrl}}" *ngIf="user.imageUrl">
+                <img src="{{user.picture}}" *ngIf="user.picture">
               </ion-avatar>
               <h2 *ngIf="user.first_name">{{user.first_name}}</h2>
               <h3>{{user.email}}</h3>
