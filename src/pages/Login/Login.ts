@@ -34,6 +34,7 @@ export class LoginPage {
   // user2: Observable<firebase.User>;
   user:any;
   loader:any;
+  notifyData:any={};
   viewStatus:boolean;
   
   constructor( public menu: MenuController,public navCtrl: NavController,public http:Http,public fb: Facebook,public googlePlus: GooglePlus,public callNumber: CallNumber,public camera: Camera,public actionCtrl:ActionSheetController,public socialSharing: SocialSharing,public service:SessionService,public db: AngularFireDatabase,public modalCtrl: ModalController,public locationTracker:LocationTrackerProvider) {
@@ -284,6 +285,34 @@ export class LoginPage {
     let profileModal = this.modalCtrl.create(RegisterUser);
     profileModal.present();
   }
+
+  login2()
+  {
+     
+        // var notifyUrl="http://klaspring.staging.wpengine.com/push_api.php?token="+this.service.getToken();     
+          var notifyUrl="http://localhost:3000/sendNotification";
+        //alert(notifyUrl);
+      
+          var timer = setTimeout(() => {
+
+            this.notifyData.senderEmail="himanshu.kumar@proapptive.in";
+            this.notifyData.message="Hello this is test";
+            this.notifyData.deviceToken="e-NTNyrpFFE:APA91bEsfqk1BZBD-CLynlouAvybU9Jnli8tRyoNdDvxTTq1EYeXzwm8b8U7WPmgu87_ptTmaC4kG0KrVTzNKKO9rEhDTgm2fSVB1GUAq_czGzDOXISkW0YMyRKaKVX9OMW1Z94THhfj";
+            this.http.post(notifyUrl,this.notifyData)
+            // .map(val => val.json())
+            .subscribe(data => 
+              {
+                //alert("Success::"+JSON.stringify(data));
+                console.log(JSON.stringify(data))
+              })
+              err =>
+              {
+               console.log("failed") 
+              //alert("Error"+err);
+              }     
+          }, 1000);
+     
+  }
   login()
   {    
       if(!this.user.email)
@@ -305,7 +334,6 @@ export class LoginPage {
         query:{
           orderByChild:'email',
           equalTo:email,
-
         },
       }).subscribe(snapshot =>{
               var value=snapshot;
@@ -317,8 +345,10 @@ export class LoginPage {
                   if(value[i].password==this.user.password)
                   {
                     password=true;
-
-                    // alert("User info==")
+                    if(this.service.getToken())
+                    {
+                      value[i].deviceToken=this.service.getToken();
+                    }
                     this.service.setUser(value[i]);
                   }
                 }
@@ -329,26 +359,13 @@ export class LoginPage {
                 }
                 else
                 {
-                  this.service.getUser().deviceToken=this.service.getToken();
-                  this.service.setUser(this.service.getUser());
-                  this.updateDeviceToken();
+                  // alert("updating user device token==="+this.service.getUser().deviceToken);
+                  if(this.service.getUser().deviceToken)
+                  {
+                    this.updateDeviceToken();
+                  }
                   this.navCtrl.setRoot(HomePage);
                   this.navCtrl.popToRoot();
-                  var user=this.service.getUser();
-                  user.latitude=0;
-                  user.longitude=0;
-
-                  // setInterval(() => {  
-                  //   user.latitude+=1;
-                  //   user.longitude+=1;
-                  //    this.db.object('/user_detail/'+user.$key).update(user).then((profile: any) => {
-                  //           console.log("Successfully updated location====")
-                  //           //  this.showToast("Successfully updated location====");
-                  //       })
-                  //       .catch((err: any) => {
-                  //           var error="error=="+err;
-                  //       });
-                  //   },2000);
                 }
               } 
               else
@@ -363,7 +380,7 @@ export class LoginPage {
         });
   }
   
-   fbLogin()
+  fbLogin()
   {
     this.fb.login(['email', 'public_profile'])
     .then((res: FacebookLoginResponse) =>{
@@ -410,6 +427,49 @@ export class LoginPage {
       }) 
   }
 
+  // ionViewDidLoad()
+  // {
+  //   alert("ionViewDidLoad");
+  // }
+
+  // ionViewWillEnter()
+  // {
+  //   alert("ionViewWillEnter");
+  // }
+
+
+  // ionViewDidEnter()
+  // {
+  //   alert("ionViewDidEnter");
+  // }
+
+  // ionViewWillLeave()
+  // {
+  //   alert("ionViewWillLeave");
+  // }
+
+
+  // ionViewDidLeave()
+  // {
+  //   alert("ionViewDidLeave");
+  // }
+
+  // ionViewWillUnload()
+  // {
+  //   alert("ionViewWillUnload");
+  // }
+
+
+  // ionViewCanEnter()
+  // {
+  //   alert("ionViewCanEnter");
+  // }
+
+
+  // ionViewCanLeave()
+  // {
+  //   alert("ionViewCanLeave")
+  // }
 
   verifyUser(data)
   {
@@ -467,10 +527,7 @@ export class LoginPage {
   {
     var userInfo=this.service.getUser();
     this.db.object('/user_detail/'+userInfo.key).update(userInfo).then((profile: any) => {
-              // return new Response('Profile has been saved successfully');
-
-
-                console.log("Successfully updated location====")
+               console.log("Successfully updated location====")
               //  this.showToast("Successfully updated location====");
             })
           .catch((err: any) => {
@@ -487,75 +544,26 @@ export class LoginPage {
     userInfo.userType="D";
     userInfo.latitude=28.4489669;
     userInfo.longitude=77.068052;
-    userInfo.deviceToken=this.service.getToken();
-    // var userInfo1={};
-    // userInfo1.latitude=null;
-    // userInfo1.longitude=null;
 
-    // alert("User info=="+JSON.stringify(userInfo));
+    if(this.service.getToken())
+    {
+      userInfo.deviceToken=this.service.getToken();
+    }
     this.db.list('/user_detail').push(userInfo).then((key) => {
         console.log('all good');
 
         // alert("All good=="+resolve);
         // this.service.showToast2("Successfully Logged in");
         userInfo.key=key;
-
-
         this.service.setUser(userInfo);
         this.navCtrl.setRoot(HomePage);
         this.navCtrl.popToRoot();
       }, reject => {
         console.log('error');
       })
-
-      
   }
 
-
-  // updateUser()
-  //       {
-
-  //             var user=this.service.getUser();
-  //             user.latitude+=1;
-  //             user.longitude+=1;   
-  //             // this.db.object('/user_detail/'+user.$key).update(user).then((profile: any) => {
-  //             //       console.log("Successfully updated location====");
-  //             //   })
-  //             //   .catch((err: any) => {
-  //             //       var error="error=="+err;
-  //             //   });
-
-
-  //               this.db.list('/user_detail',{
-  //                   query:{
-  //                     orderByChild:'email',
-  //                     equalTo:user.email,
-                      
-  //                   },
-  //                 }).
-                  
-  //                 subscribe((snapshot)=>{
-  //                       snapshot.forEach(function(child) {
-  //                           child.ref().update({
-  //                               latitude:28.89777,
-  //                               longitude:72.23455      
-  //                           });  
-  //                       })  
-  //                   },error=>{
-  //                     alert("failed to update");
-  //                   })
-
-
-
-                    
-
-
-  //                   // this.albumService.list.push(albumData)
-  //                   //         .then(({key}) => this.albumService.summariesObject(key).update(stuff));
-  //                 this.navCtrl.setRoot(HomePage);
-  //                 this.navCtrl.popToRoot();
-  //             }
-        }
+}
 @Component({
   selector: 'page-Login',
   templateUrl: 'register.html'
@@ -671,7 +679,12 @@ export class RegisterUser{
           // }, reject => {
           //   console.log('error');
           // })
-                    this.user.deviceToken=this.service.getToken();  
+
+                    if(this.service.getToken())
+                    {
+                      this.user.deviceToken=this.service.getToken();  
+                    }
+                    
                     this.db.list('/user_detail').push(this.user).then(({key}) => 
                     {
 
@@ -722,8 +735,6 @@ export class RegisterUser{
     {
         this.db.object('/user_detail/'+user.key).update(user).then((profile: any) => {
             // return new Response('Profile has been saved successfully');
-
-
               console.log("Successfully updated location====")
             //  this.showToast("Successfully updated location====");
           })

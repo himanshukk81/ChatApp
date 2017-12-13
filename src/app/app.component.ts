@@ -37,6 +37,8 @@ export class MyApp {
     ,public locationTracker:LocationTrackerProvider
     ) {
 
+    
+    // alert("Call constructor");  
     this.headers = new Headers({'Content-Type':'application/json'});  
     this.initializeApp();
     // this.enableLocation();  
@@ -51,7 +53,12 @@ export class MyApp {
 
     ];
 
+
+
   }
+
+
+
 
   initializeApp() {
     this.platform.ready().then(() => {
@@ -59,6 +66,8 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
 
       // alert("Platform is ready");
+
+      // alert("Initiasling app");
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.checkUserStatus();
@@ -186,37 +195,41 @@ export class MyApp {
    initPushNotification()
     {
 
-      this.fcm.subscribeToTopic('Notification');
+      // this.fcm.subscribeToTopic('Notification');
 
       this.fcm.getToken().then(token=>{
         // alert("token=="+token);  
         console.log("token=="+JSON.stringify(token));
-
         this.service.setToken(token);
-      }).catch( (e) => {
-          // alert("error"+e);
-          // //alert(JSON.stringify(e));
+      }).catch((e) => {
           });
-
+ 
       this.fcm.onNotification().subscribe(data=>{
-        this.service.setOtherUserInfo(data);
+        // alert("fsdfsdfsdfsdfsdfsdfsd");
+        // this.service.setOtherUserInfo(data);
+        // alert("Calling fcm==="+JSON.stringify(data));
+
+        alert("Data==="+JSON.stringify(data));
         if(data.wasTapped){
-             this.navCtrl.push(UserDetailPage);
+             alert("background");
+            //  this.navCtrl.push(UserDetailPage);
             // alert("recieved notification=="+JSON.stringify(data));
         } else {
-             this.navCtrl.push(UserDetailPage);
+              alert("foreground");
+            //  this.navCtrl.push(UserDetailPage);
           //  alert("received notification without tap=="+JSON.stringify(data))
         };
       })
 
-      this.fcm.onTokenRefresh().subscribe(token=>{
-         console.log("refresh token==="+JSON.stringify(token));
-         this.service.setToken(token);
-      })
+      // this.fcm.onTokenRefresh().subscribe(token=>{
+      //    console.log("refresh token==="+JSON.stringify(token));
+      //    this.service.setToken(token);
+      // })
 
-      this.fcm.unsubscribeFromTopic('Notification');
+      // this.fcm.unsubscribeFromTopic('Notification');
     }
   openPage(page) {
+
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     // alert("pages::"+JSON.stringify(this.pages[1]));

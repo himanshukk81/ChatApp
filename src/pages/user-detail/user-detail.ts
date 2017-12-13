@@ -37,15 +37,12 @@ export class UserDetailPage {
 
   
   ionViewDidLoad() {
+    
 
-    //  this.user=this.service.getUser(); 
+      
      this.messages=this.db.list('/messages');
      this.scrollToBottom();
      this.messageInfo.createTime=new Date();
-
-    //  var email=data.email.toLowerCase();
-     
-    //      email=email.replace(/\s/g, ""); 
      var senderEmail=this.service.getUser().email;
      var receiverEmail=this.service.getOtherUserInfo().email;
 
@@ -115,7 +112,6 @@ export class UserDetailPage {
       {
         return true;
       }
-      
     }
     if(message.receiverEmail==this.service.getUser().email)
     {
@@ -127,12 +123,7 @@ export class UserDetailPage {
        
     }
   }
-
-
-
-
-
-    switchEmojiPicker() {
+  switchEmojiPicker() {
         this.showEmojiPicker = !this.showEmojiPicker;
         if (!this.showEmojiPicker) {
             this.messageInput.setFocus();
@@ -150,15 +141,16 @@ export class UserDetailPage {
 
   sendMessage()
   {
-    // this.messageInfo.status="pending";
     this.loader=true;
+    this.messageInfo.senderId=this.service.getUser().key;
+    this.messageInfo.receiverId=this.service.getOtherUserInfo().key;
     this.db.list('/messages').push(this.messageInfo).then(resolve => {
         console.log('all good');
         // this.messages.remove(this.messageInfo);
         // this.loader=false;
         // this.messageInfo.pending=false;
         this.scrollToBottom();
-        this.sendNotification();
+        // this.sendNotification();
         // this.messageInfo.status="completed";
       }, reject => {
         console.log('error');
@@ -166,19 +158,13 @@ export class UserDetailPage {
         this.scrollToBottom();
         // this.messageInfo.status="failed";
       })
-
       this.messageInfo.editorMsg='';
-      
   }
 
   sendNotification()
       {
         var notifyUrl="http://klaspring.staging.wpengine.com/push_api.php?token="+this.service.getToken()+"&senderEmail="+this.messageInfo.senderEmail+"&receiverEmail="+this.messageInfo.receiverEmail+"&message="+this.messageInfo.editorMsg;     
-          // var timer = setTimeout(() => {
-
-            
               this.http.get(notifyUrl)
-            // .map(val => val.json())
               .subscribe(data => 
                 {                  
                   console.log(JSON.stringify(data))
@@ -186,13 +172,6 @@ export class UserDetailPage {
                 err =>
                 {
                  this.service.showToast("Error while sending notification");
-                // alert("Error"+err);
                 }
-            
-                 
-          // }, 2000);
       }
-
-
-
 }
