@@ -19,25 +19,31 @@ import { LocationTrackerProvider } from '../providers/location-tracker';
 import { UsersPage } from '../pages/users/users';
 import { UserDetailPage} from '../pages/user-detail/user-detail';
 import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database-deprecated';
+import { Jsonp } from '@angular/http/src/http';
+import { firestore } from 'firebase/app';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  @ViewChild(Nav) nav: Nav;
-  @ViewChild(NavController) navCtrl: NavController;
+  @ViewChild('myNav') nav: Nav;
+  @ViewChild('NavController') navCtrl: NavController;
 
 
   rootPage: any=LoginPage;
   headers:any;
   pages: Array<{title: string, component: any}>;
+  notifyData:any={};
 
+
+  // ngOnInit() {
+  //   // Let's navigate from TabsPage to Page1
+  //   this.nav.push(HomePage);
+  // }
   constructor(public db: AngularFireDatabase,public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,public fcm:FCM,public service:SessionService,public native:NativeStorage,public sharing:SocialSharing,public alertCtrl:AlertController  
     ,public nativeStorage:NativeStorage,public locationAccuracy:LocationAccuracy,public network:Network,public flashlight: Flashlight,public localNotifications:LocalNotifications,public http:Http
     ,public locationTracker:LocationTrackerProvider
     ) {
-
-    
     // alert("Call constructor");  
     this.headers = new Headers({'Content-Type':'application/json'});  
     this.initializeApp();
@@ -53,6 +59,14 @@ export class MyApp {
 
     ];
 
+
+    // this.fetchOtherUserInfo();
+    // setTimeout(()=>{
+      
+    // },4000)
+
+
+    
 
 
   }
@@ -86,16 +100,7 @@ export class MyApp {
             this.locationAccuracy.request(this.locationAccuracy.REQUEST_PRIORITY_HIGH_ACCURACY).then(
               data =>
               {
-                // alert("data::"+data);
-                // this.service.showToast2("enable success");
-
-            
-
-
                 setTimeout(()=>{
-
-                    // this.service.showToast2("Getting location");  
-                    // this.service.getCurrentLocation();
                     this.locationTracker.startTracking();
                 },100)
                
@@ -171,7 +176,7 @@ export class MyApp {
             data =>
             {
                 // this.userData=data;
-
+                // alert("data 195==="+JSON.stringify(data));
                 if(data)
                 {
                   this.rootPage=HomePage;
@@ -185,49 +190,59 @@ export class MyApp {
                 this.checkNetwork();
             },
             error =>{
-              // alert("Errror="+error)
+              alert("Errror="+error)
               let error2="Error="+error;
               // this.service.showToast("Error="+error2);
               this.rootPage=LoginPage;
             }  
         );
   }
-   initPushNotification()
-    {
+  initPushNotification()
+  {
 
-      // this.fcm.subscribeToTopic('Notification');
+    // this.fcm.subscribeToTopic('Notification');
 
-      this.fcm.getToken().then(token=>{
-        // alert("token=="+token);  
-        console.log("token=="+JSON.stringify(token));
-        this.service.setToken(token);
-      }).catch((e) => {
-          });
- 
-      this.fcm.onNotification().subscribe(data=>{
-        // alert("fsdfsdfsdfsdfsdfsdfsd");
-        // this.service.setOtherUserInfo(data);
-        // alert("Calling fcm==="+JSON.stringify(data));
+    this.fcm.getToken().then(token=>{
+      // alert("token=="+token);  
+      console.log("token=="+JSON.stringify(token));
+      this.service.setToken(token);
+    }).catch((e) => {
+        });
+    var firstTime=true;
+    this.fcm.onNotification().subscribe(data=>{
+      // alert("fsdfsdfsdfsdfsdfsdfsd/"+JSON.stringify(data));
+      // this.service.setOtherUserInfo(data);
+      // alert("Calling fcm==="+JSON.stringify(data));
+      this.notifyData=data;
+      
+      if(data.wasTapped){
+            // alert("background===="+JSON.stringify(this.notifyData));
+            this.fetchOtherUserInfo();
+          //  this.presentConfirm("Notification","Do you want to see notification?")
+          //  this.navCtrl.push(UserDetailPage);
+          // alert("recieved notification=="+JSON.stringify(data));
+      } else {
+            // alert("foreground===="+JSON.stringify(this.notifyData));
 
-        alert("Data==="+JSON.stringify(data));
-        if(data.wasTapped){
-             alert("background");
-            //  this.navCtrl.push(UserDetailPage);
-            // alert("recieved notification=="+JSON.stringify(data));
-        } else {
-              alert("foreground");
-            //  this.navCtrl.push(UserDetailPage);
-          //  alert("received notification without tap=="+JSON.stringify(data))
-        };
-      })
+            if(firstTime)
+            {
+              this.presentConfirm("Notification","Do you want to see notification?")
+              firstTime=false;
+            }
+            
+            
+          //  this.navCtrl.push(UserDetailPage);
+        //  alert("received notification without tap=="+JSON.stringify(data))
+      };
+    })
 
-      // this.fcm.onTokenRefresh().subscribe(token=>{
-      //    console.log("refresh token==="+JSON.stringify(token));
-      //    this.service.setToken(token);
-      // })
+    // this.fcm.onTokenRefresh().subscribe(token=>{
+    //    console.log("refresh token==="+JSON.stringify(token));
+    //    this.service.setToken(token);
+    // })
 
-      // this.fcm.unsubscribeFromTopic('Notification');
-    }
+    // this.fcm.unsubscribeFromTopic('Notification');
+  }
   openPage(page) {
 
     // Reset the content nav to have just this page
@@ -251,7 +266,7 @@ export class MyApp {
       {
         // this.nativeStorage.clear()
 
-        this.presentConfirm();
+        this.presentConfirm("Logout","Are You sure you want to logout");
         // this.service.setUser(null);
         // this.nativeStorage.clear();
         // this.nav.setRoot(LoginPage);
@@ -275,89 +290,125 @@ export class MyApp {
       }
       
   }
-    sendNotification()
-      {
-        var notifyUrl="http://klaspring.staging.wpengine.com/push_api.php?token="+this.service.getToken();     
-          // var timer = setTimeout(() => {
+  sendNotification()
+  {
+    var notifyUrl="http://klaspring.staging.wpengine.com/push_api.php?token="+this.service.getToken();     
+      // var timer = setTimeout(() => {
 
-            setTimeout(()=>{
-              this.http.get(notifyUrl,{headers: this.headers})
-            // .map(val => val.json())
-              .subscribe(data => 
-                {
-                  // alert("Success::"+JSON.stringify(data));
-
-                  this.flashlight.switchOn();
-
-                  setTimeout(() => {  
-                  //  alert("Calling in time out");
-                  // directionsDisplay = new google.maps.DirectionsRenderer();
-                    this.flashlight.switchOff();       
-                  },3000);
-                  console.log(JSON.stringify(data))
-                })
-                err =>
-                {
-                // alert("Error"+err);
-                }
-            },5000)
-                 
-          // }, 2000);
-      }
-
-      
-    presentConfirm() {
-        let alert = this.alertCtrl.create({
-          title: 'LogOut',
-          message: 'Are You Sure you want to Logout?',
-          buttons: [
+        setTimeout(()=>{
+          this.http.get(notifyUrl,{headers: this.headers})
+        // .map(val => val.json())
+          .subscribe(data => 
             {
-              text: 'Cancel',
-              role: 'cancel',
-              handler: () => {
-                // console.log('Cancel clicked');
-              }
-            },
+              // alert("Success::"+JSON.stringify(data));
+
+              this.flashlight.switchOn();
+
+              setTimeout(() => {  
+              //  alert("Calling in time out");
+              // directionsDisplay = new google.maps.DirectionsRenderer();
+                this.flashlight.switchOff();       
+              },3000);
+              console.log(JSON.stringify(data))
+            })
+            err =>
             {
-              text: 'Confirm',
-              handler: () => {
-                // console.log('Buy clicked');
-                // this.native.clear()        
-                  // .then(()=>{
-                    this.clearDeviceToken()
-                    this.service.setUser(null);
-                    this.nativeStorage.clear();
-                    this.nav.setRoot(LoginPage);
-                    this.nav.popToRoot();
-                  },
-                    
-                  // this.nav.setRoot(login);
-              
+            // alert("Error"+err);
             }
-          ]
-        })
-      
-        alert.present();
-    }
+        },5000)
+              
+      // }, 2000);
+  }   
+  presentConfirm(titleName,messageInfo) {
+      let alert = this.alertCtrl.create({
+        title: titleName,
+        message: messageInfo,
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            handler: () => {
+              // console.log('Cancel clicked');
+            }
+          },
+          {
+            text: 'Confirm',
+            handler: () => {
+                  if(titleName="Logout")
+                  {
+                  this.clearDeviceToken();
+                  this.nativeStorage.clear();
+                  this.nav.setRoot(LoginPage);
+                  this.nav.popToRoot();
+                  this.updateUserInfo();
+                  }
+                  else
+                  {
+                    this.fetchOtherUserInfo();
+                  }
+                  
+                },
+                  
+                // this.nav.setRoot(login);
+            
+          }
+        ]
+      })
+    
+      alert.present();
+  }
+  updateUserInfo()
+  {
+    var userInfo=this.service.getUser();
+    userInfo.login=false;
+    this.db.object('/user_detail/'+userInfo.key).update(userInfo).then((profile: any) => {
+      this.service.setUser(null);
+      console.log("Successfully updated location====")
+      //  this.showToast("Successfully updated location====");
+    })
+    .catch((err: any) => {
+        // return new Response('Unable to save profile at this time, please try again later.');
+        var error="error=="+err;
+        
+    });
+  }
+  fetchOtherUserInfo()
+  {
+    this.notifyData.receiverId="-L0DF9Ef0a8192NgIrtH";
+    // alert("key==="+this.notifyData.receiverId);
+    var item=this.db.list('/user_detail',{
+      query:{
+        orderByChild:'key',
+        equalTo:this.notifyData.receiverId,
+      },
+    }).subscribe(snapshot =>{
+      // this.service.setUser(snapshot[0]);
+      // alert("other user info====="+JSON.stringify(snapshot));
+      this.service.setOtherUserInfo(snapshot[0]);
+      // this.navCtrl.push(UserDetailPage);
+      this.nav.push(UserDetailPage);
+      },error=>{
+        var err1="Error=="+error;
+        this.service.showToast2(err1);
+      });
+  }
+  clearDeviceToken()
+  {
+      var user=this.service.getUser();
+      user.deviceToken="";
+      this.db.object('/user_detail/'+user.key).update(user).then((profile: any) => {
+        // return new Response('Profile has been saved successfully');
 
 
-      clearDeviceToken()
-      {
-          var user=this.service.getUser();
-          user.deviceToken="";
-          this.db.object('/user_detail/'+user.key).update(user).then((profile: any) => {
-            // return new Response('Profile has been saved successfully');
-
-
-              console.log("Successfully updated location====")
-            //  this.showToast("Successfully updated location====");
-          })
-        .catch((err: any) => {
-            // return new Response('Unable to save profile at this time, please try again later.');
-            var error="error=="+err;
-            // this.showToast(error);
-        });
-      }
+          console.log("Successfully updated location====")
+        //  this.showToast("Successfully updated location====");
+      })
+    .catch((err: any) => {
+        // return new Response('Unable to save profile at this time, please try again later.');
+        var error="error=="+err;
+        // this.showToast(error);
+    });
+  }
 
 }
 

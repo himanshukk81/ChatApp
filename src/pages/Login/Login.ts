@@ -350,6 +350,10 @@ export class LoginPage {
                       value[i].deviceToken=this.service.getToken();
                     }
                     this.service.setUser(value[i]);
+
+                    console.log("user----"+JSON.stringify(this.service.getUser()));
+
+                    
                   }
                 }
                 if(!password)
@@ -526,6 +530,7 @@ export class LoginPage {
   updateDeviceToken()
   {
     var userInfo=this.service.getUser();
+    userInfo.login=true;
     this.db.object('/user_detail/'+userInfo.key).update(userInfo).then((profile: any) => {
                console.log("Successfully updated location====")
               //  this.showToast("Successfully updated location====");

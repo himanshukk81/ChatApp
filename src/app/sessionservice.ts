@@ -125,19 +125,20 @@ export class SessionService {
     setUser(userInfo)
     {
       this.user=userInfo;
-
-    //    this.nativeStorage.setItem('userInfo',userInfo)
-    //     .then(
-    //         () =>
-    //             {
-    //              var message="stored";
-    //             //  this.showToast("stored user type")
-    //             },
-    //         error =>{
-    //             var message="stored error user type="+error;
-    //             //  this.showToast(message)
-    //         } 
-    //     );   
+       this.nativeStorage.setItem('userInfo',userInfo)
+        .then(
+            () =>
+                {
+                 var message="stored";
+                 alert("Stored===");
+                //  this.showToast("stored user type")
+                },
+            error =>{
+                alert("Failed to stored==="+error);
+                var message="stored error user type="+error;
+                //  this.showToast(message)
+            } 
+        );   
     }
 
     getUser()
@@ -153,6 +154,28 @@ export class SessionService {
     getOtherUserInfo()
     {
         return this.otherUserInfo;
+    }
+
+    getStoredData()
+    {
+        this.nativeStorage.getItem('userInfo')
+        .then
+        (
+
+            
+            data =>
+            {
+                // this.userData=data;
+                // alert("data 195==="+JSON.stringify(data));
+                this.events.publish('fetch:localData',data); 
+                this.setUser(data);
+                return data;
+               
+            },
+            error =>{
+             
+            }  
+        );
     }
 }
 

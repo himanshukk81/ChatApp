@@ -17,6 +17,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database-deprecated';
 import { LocationTrackerProvider } from '../../providers/location-tracker';
+import { UserDetailPage} from '../user-detail/user-detail';
 
 declare var google:any;
 declare var navigator: any;
@@ -82,6 +83,25 @@ export class HomePage {
         // var user=this.service.getUser();
         // user.latitude=9874561;
         // user.longitude=456789;
+
+
+
+        
+          // var id="-L09Jwk1T5yYMQ-Zg2H4";
+          // // alert("key==="+this.notifyData.receiverId);
+          // var item=this.db.list('/user_detail',{
+          //   query:{
+          //     orderByChild:'key',
+          //     equalTo:id,
+          //   },
+          // }).subscribe(snapshot =>{
+          //   this.service.setOtherUserInfo(snapshot[0]);
+          //   this.navCtrl.push(UserDetailPage);
+          //   },error=>{
+          //     var err1="Error=="+error;
+          //     this.service.showToast2(err1);
+          //   });
+        
         this.platform.ready().then((readySource) => {
               // this.service.showToast("Enable Location====");
               this.diagnostic.isLocationEnabled().then(
