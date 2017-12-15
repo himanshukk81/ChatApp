@@ -17,6 +17,7 @@ import { Jsonp } from '@angular/http/src/http';
 import { LocationTrackerProvider } from '../../providers/location-tracker';
 import { profile } from '../profile/profile';
 import { UsersPage } from '../users/users';
+import { ProductsPage} from '../../pages/products/products';
 
 
 @Component({
@@ -368,7 +369,7 @@ export class LoginPage {
                   {
                     this.updateDeviceToken();
                   }
-                  this.navCtrl.setRoot(HomePage);
+                  this.navCtrl.setRoot(ProductsPage);
                   this.navCtrl.popToRoot();
                 }
               } 

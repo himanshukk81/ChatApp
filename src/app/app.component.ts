@@ -21,6 +21,7 @@ import { UserDetailPage} from '../pages/user-detail/user-detail';
 import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database-deprecated';
 import { Jsonp } from '@angular/http/src/http';
 import { firestore } from 'firebase/app';
+import { ProductsPage} from '../pages/products/products';
 
 @Component({
   templateUrl: 'app.html'
@@ -30,7 +31,7 @@ export class MyApp {
   @ViewChild('NavController') navCtrl: NavController;
 
 
-  rootPage: any=LoginPage;
+  rootPage:any=LoginPage;
   headers:any;
   pages: Array<{title: string, component: any}>;
   notifyData:any={};
@@ -46,7 +47,7 @@ export class MyApp {
     ) {
     // alert("Call constructor");  
     this.headers = new Headers({'Content-Type':'application/json'});  
-    this.initializeApp();
+    // this.initializeApp();
     // this.enableLocation();  
     // used for an example of ngFor and navigation
     this.pages = [
@@ -103,13 +104,9 @@ export class MyApp {
                 setTimeout(()=>{
                     this.locationTracker.startTracking();
                 },100)
-               
               },
               error=>{
-
                 this.service.showToast("Failed to get location");
-                // this.service.showToast2("Please enable your location for map load");
-                // alert("Error::"+error);
               })
           }
 
@@ -199,9 +196,6 @@ export class MyApp {
   }
   initPushNotification()
   {
-
-    // this.fcm.subscribeToTopic('Notification');
-
     this.fcm.getToken().then(token=>{
       // alert("token=="+token);  
       console.log("token=="+JSON.stringify(token));
@@ -210,17 +204,11 @@ export class MyApp {
         });
     var firstTime=true;
     this.fcm.onNotification().subscribe(data=>{
-      // alert("fsdfsdfsdfsdfsdfsdfsd/"+JSON.stringify(data));
-      // this.service.setOtherUserInfo(data);
-      // alert("Calling fcm==="+JSON.stringify(data));
       this.notifyData=data;
       
       if(data.wasTapped){
             // alert("background===="+JSON.stringify(this.notifyData));
             this.fetchOtherUserInfo();
-          //  this.presentConfirm("Notification","Do you want to see notification?")
-          //  this.navCtrl.push(UserDetailPage);
-          // alert("recieved notification=="+JSON.stringify(data));
       } else {
             // alert("foreground===="+JSON.stringify(this.notifyData));
 
@@ -346,11 +334,7 @@ export class MyApp {
                   {
                     this.fetchOtherUserInfo();
                   }
-                  
                 },
-                  
-                // this.nav.setRoot(login);
-            
           }
         ]
       })

@@ -40,6 +40,9 @@ import { UserDetailPage} from '../pages/user-detail/user-detail';
 import { UsersPage} from '../pages/users/users';
 import { EmojiProvider} from '../providers/emoji';
 import {EmojiPickerComponentModule} from "../components/emoji-picker/emoji-picker.module";
+import { ProductsPage} from '../pages/products/products';
+import { ProductDetailPage} from '../pages/product-detail/product-detail';
+
 // import {EmojiProvider} from "../../providers/emoji";
 // import {
 //   GoogleMaps,
@@ -60,7 +63,9 @@ import {EmojiPickerComponentModule} from "../components/emoji-picker/emoji-picke
     Places,
     RegisterUser,
     UserDetailPage,
-    UsersPage
+    UsersPage,
+    ProductsPage,
+    ProductDetailPage
   ],
   imports: [
     EmojiPickerComponentModule,
@@ -81,7 +86,9 @@ import {EmojiPickerComponentModule} from "../components/emoji-picker/emoji-picke
     Places,
     RegisterUser,
     UserDetailPage,
-    UsersPage
+    UsersPage,
+    ProductsPage,
+    ProductDetailPage
   ],
   providers: [
     StatusBar,

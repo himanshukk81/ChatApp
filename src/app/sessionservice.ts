@@ -21,10 +21,19 @@ export class SessionService {
     userTypeData:any;
     userInfo:any;
     otherUserInfo:any;
+    product:any;
     constructor(public http:Http,public events:Events,public toastCtrl:ToastController,public nativeStorage:NativeStorage,public toast:Toast,public geolocation:Geolocation){
     }
 
-    
+    setProduct(product)
+    {
+        this.product=product;
+    }
+
+    getProduct()
+    {
+        return this.product;
+    }
     setToken(token)
     {
     this.token=token;
