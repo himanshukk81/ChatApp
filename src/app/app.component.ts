@@ -22,6 +22,7 @@ import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/databas
 import { Jsonp } from '@angular/http/src/http';
 import { firestore } from 'firebase/app';
 import { ProductsPage} from '../pages/products/products';
+import { OrdersPage} from '../pages/orders/orders';
 
 @Component({
   templateUrl: 'app.html'
@@ -47,16 +48,19 @@ export class MyApp {
     ) {
     // alert("Call constructor");  
     this.headers = new Headers({'Content-Type':'application/json'});  
-    // this.initializeApp();
+    this.initializeApp();
     // this.enableLocation();  
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Share App',component:HomePage},
-      { title: 'Profile',component:profile},
+      {title:'Home', component: HomePage },
+      {title:'Share App',component:HomePage},
+      {title:'Profile',component:profile},
       {title:'Notification',component:HomePage},
       {title:'Users',component:UsersPage},
+      {title:'Products',component:ProductsPage},
+      {title:'Orders',component:OrdersPage},
       {title:'Logout',component:HomePage},
+      
 
     ];
 
@@ -113,7 +117,7 @@ export class MyApp {
         });
     }
 
-  checkNetwork()
+   checkNetwork()
     {
 
       // alert("checking Network");
@@ -250,7 +254,7 @@ export class MyApp {
           // Sharing via email is not possible
         });
       }
-      else if(this.pages[5].title==page.title)
+      else if("Logout"==page.title)
       {
         // this.nativeStorage.clear()
 

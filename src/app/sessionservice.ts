@@ -22,6 +22,7 @@ export class SessionService {
     userInfo:any;
     otherUserInfo:any;
     product:any;
+    orderInfo:any;
     constructor(public http:Http,public events:Events,public toastCtrl:ToastController,public nativeStorage:NativeStorage,public toast:Toast,public geolocation:Geolocation){
     }
 
@@ -44,6 +45,16 @@ export class SessionService {
         return this.token;
     }
 
+
+    setOrderInfo(info)
+    {
+     this.orderInfo=info;
+    }
+
+    getOrderInfo()
+    {
+     return this.orderInfo;
+    }
      showToast2(message)
     {
         let toast = this.toastCtrl.create({

@@ -42,6 +42,8 @@ import { EmojiProvider} from '../providers/emoji';
 import {EmojiPickerComponentModule} from "../components/emoji-picker/emoji-picker.module";
 import { ProductsPage} from '../pages/products/products';
 import { ProductDetailPage} from '../pages/product-detail/product-detail';
+import { OrdersPage} from '../pages/orders/orders';
+import { OrderDetailPage} from '../pages/order-detail/order-detail';
 
 // import {EmojiProvider} from "../../providers/emoji";
 // import {
@@ -65,7 +67,9 @@ import { ProductDetailPage} from '../pages/product-detail/product-detail';
     UserDetailPage,
     UsersPage,
     ProductsPage,
-    ProductDetailPage
+    ProductDetailPage,
+    OrdersPage,
+    OrderDetailPage
   ],
   imports: [
     EmojiPickerComponentModule,
@@ -88,7 +92,9 @@ import { ProductDetailPage} from '../pages/product-detail/product-detail';
     UserDetailPage,
     UsersPage,
     ProductsPage,
-    ProductDetailPage
+    ProductDetailPage,
+    OrdersPage,
+    OrderDetailPage
   ],
   providers: [
     StatusBar,
@@ -112,6 +118,8 @@ import { ProductDetailPage} from '../pages/product-detail/product-detail';
     LocationTrackerProvider,
     BackgroundGeolocation,
     EmojiProvider,
+    OrdersPage,
+    OrderDetailPage,
     // GoogleMap,
     // GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

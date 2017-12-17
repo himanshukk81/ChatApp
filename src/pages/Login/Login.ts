@@ -369,7 +369,7 @@ export class LoginPage {
                   {
                     this.updateDeviceToken();
                   }
-                  this.navCtrl.setRoot(ProductsPage);
+                  this.navCtrl.setRoot(HomePage);
                   this.navCtrl.popToRoot();
                 }
               } 

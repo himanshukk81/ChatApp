@@ -12,7 +12,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Products</ion-title>
+    <ion-title>Orders</ion-title>
       <!-- <ion-buttons end>
         <button (click)="call()">
         <ion-icon name="call" ></ion-icon>
@@ -23,6 +23,9 @@
 
 <ion-content>
        <ion-list>
-           <ion-item *ngFor="let product of products | async" (click)="viewProduct(product)">{{product.name}}</ion-item>
+           <ion-item *ngFor="let order of orders | async" (click)="orderDetail(order)">
+            <h2>{{order.productName}}</h2>
+            <p>{{order.id}}</p>
+           </ion-item>
        </ion-list>
 </ion-content>

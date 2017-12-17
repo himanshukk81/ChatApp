@@ -14,25 +14,18 @@
 </ion-header>
 
 <ion-content>
-  <h3 text-center>
-    <b>Name</b> {{productInfo.name}}
-  </h3>
-  <h4 text-center>
-    <b>Price</b> {{productInfo.price}}
-  </h4>
-  <h5 text-center>
-   <b>Quantity</b>  {{productInfo.quantity}}
-  </h5>
-  <p>
-    <b>Descriptions</b> {{productInfo.descriptions}}
-  </p>
-  <ion-item>
-    <ion-input type="text" [(ngModel)]="order.descriptions"></ion-input>
-  </ion-item>
-  
+    <div class="item-profile" text-center  #profilePic [style.background-image]="'url(' + productInfo.imageUrl + ')'">  
+    </div>
 
+
+    <div class="item-detail" padding>
+      <h2><b>Product Name : </b>{{productInfo.name}}</h2>
+      <h3><b>Quantity :</b> {{productInfo.quantity}}</h3>
+      <h3><b>Price :</b>{{productInfo.price}}</h3>
+      <button ion-button block (click)="orderProduct()" [disabled]="loader">Order</button>
+    </div> 
   <div *ngIf="loader">
     <ion-spinner name="bubbles"></ion-spinner>
   </div>  
-  <button ion-button block (click)="orderProduct()" [disabled]="loader">Order</button>
+  
 </ion-content>

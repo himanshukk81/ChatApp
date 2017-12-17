@@ -1,0 +1,28 @@
+<!--
+  Generated template for the OrderDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+  <ion-header>
+    <ion-navbar>
+      <button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Order Detail</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+      
+    
+      <div class="item-detail" padding>
+        <h2><b>Product Name : </b>{{orderInfo.productName}}</h2>
+        <h3><b>Order Date :</b> {{orderInfo.orderDate | date:'medium'}}</h3>
+
+        <h3 *ngIf="orderInfo.status=='A'"><b>Order Status:</b>Approved</h3>
+        <h3 *ngIf="orderInfo.status=='P'"><b>Order Status:</b>Pending</h3>
+        <h3 *ngIf="orderInfo.status=='R'"><b>Order Status:</b>Reject</h3>
+    
+      </div> 
+  </ion-content>
